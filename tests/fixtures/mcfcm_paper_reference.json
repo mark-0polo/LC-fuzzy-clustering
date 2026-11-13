@@ -1,0 +1,171 @@
+{
+  "purpose": "Independent numerical oracle calculated directly from published equations, not outputs supplied by the original authors or the third-party GitHub program.",
+  "source_url": "https://www.mdpi.com/1999-4893/13/7/158",
+  "source_doi": "10.3390/a13070158",
+  "equations": {
+    "fuzzifiers": "Section 3.1, Equation (4)",
+    "objective": "Equation (5)",
+    "centers": "Equation (7)",
+    "memberships": "Equation (10)",
+    "update_order": "Section 3.2 algorithm Steps 1-4: initialize V; U from old V; new V from U; center-change norm stopping"
+  },
+  "independent_calculation": "scipy.spatial.distance.cdist for Euclidean and squared distances; explicit per-row distance-ratio membership formula; numpy.average with U**m weights for centers; scalar first-order convex minimizers independently checked using scipy.optimize.brentq. No dafcm imports.",
+  "authorship": "Independently calculated test fixture; no verified original-author executable or original-author numerical output is claimed.",
+  "parameter_note": "Bounds [1.1,4.1], alpha=1 and these initial centers are explicit admissible fixture inputs. They are not universal author defaults. Floor(N/K) sorted distances include the self-distance zero, following literal Section 3.1 pseudocode; random center selection is not involved in this deterministic fixture.",
+  "X": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.4,
+      0.0
+    ],
+    [
+      1.5,
+      0.5
+    ],
+    [
+      4.0,
+      1.0
+    ],
+    [
+      4.2,
+      1.1
+    ],
+    [
+      10.0,
+      4.0
+    ]
+  ],
+  "n_clusters": 2,
+  "bounds": [
+    1.1,
+    4.1
+  ],
+  "alpha": 1.0,
+  "neighbor_convention": "including_self",
+  "neighbor_count": 3,
+  "nearest_distances": [
+    [
+      0.0,
+      0.4,
+      1.5811388300841898
+    ],
+    [
+      0.0,
+      0.4,
+      1.2083045973594573
+    ],
+    [
+      0.0,
+      1.2083045973594573,
+      1.5811388300841898
+    ],
+    [
+      0.0,
+      0.22360679774997916,
+      2.5495097567963922
+    ],
+    [
+      0.0,
+      0.22360679774997916,
+      2.7658633371878665
+    ],
+    [
+      0.0,
+      6.48459713474939,
+      6.708203932499369
+    ]
+  ],
+  "neighbor_distance_sums": [
+    1.98113883008419,
+    1.6083045973594574,
+    2.789443427443647,
+    2.7731165545463714,
+    2.9894701349378456,
+    13.192801067248759
+  ],
+  "q": [
+    0.03218389626979576,
+    0.0,
+    0.10195858172638178,
+    0.10054920904111118,
+    0.11922534062385416,
+    1.0
+  ],
+  "fuzzifiers": [
+    1.1965516888093874,
+    1.1,
+    1.4058757451791455,
+    1.4016476271233336,
+    1.4576760218715625,
+    4.1
+  ],
+  "initial_centers": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      10.0,
+      4.0
+    ]
+  ],
+  "memberships": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      5.018027541135307e-29
+    ],
+    [
+      0.9998290109930992,
+      0.0001709890069008046
+    ],
+    [
+      0.9186122792231216,
+      0.0813877207768785
+    ],
+    [
+      0.852341901799376,
+      0.147658098200624
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "updated_centers": [
+    [
+      1.875783427574174,
+      0.4827459641729312
+    ],
+    [
+      9.509570868173997,
+      3.754788910731657
+    ]
+  ],
+  "objective_initial_centers": 36.610801332532745,
+  "objective": 18.725873975003843,
+  "objective_definition": "sum_i,k U[i,k]**m[i] * squared_distance(X[i], updated_centers[k]); U is the first update from initial_centers, before any second membership update.",
+  "center_change_frobenius": 2.01302169504726,
+  "independent_root_check_rows": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "independent_cluster2_root_memberships": [
+    5.018027541135308e-29,
+    0.0001709890069008045,
+    0.08138772077687845,
+    0.14765809820062398
+  ],
+  "comparison_tolerance": {
+    "relative": 1e-11,
+    "absolute": 1e-13
+  }
+}

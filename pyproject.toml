@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uci-clustering-benchmark"
+version = "1.0.0"
+description = "LC fuzzy clustering vs nine comparison methods on 21 UCI datasets, fully reproducible"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = {file = "LICENSE"}
+authors = [{name = "Clustering benchmark contributors"}]
+dynamic = ["dependencies"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+py-modules = ["data_loader", "figures", "metrics"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
