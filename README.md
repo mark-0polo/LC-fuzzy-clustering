@@ -71,7 +71,7 @@ Open **`results/benchmark/RESULTS.md`** after the run. It contains:
 | `all_runs.csv` | Every fit: one row per dataset, method and seed |
 | `summary.csv`, `ranking.csv` | Mean and SD per cell; wins and ranks |
 | `lc_significance.csv`, `wilcoxon_holm.csv`, `friedman.csv`, `nemenyi.csv` | Statistical tests |
-| `Figures/` | 22 PNG figures at 600 DPI ([docs/FIGURES.md](docs/FIGURES.md)) |
+| `Figures/` | 22 PNG figures at 600 DPI |
 | `Predictions/` | Saved labels and memberships of every fit |
 | `verification.json`, `experiment_manifest.json` | The audit; code, data and package versions |
 
@@ -82,7 +82,7 @@ k = ⌈log₂ M⌉ nearest neighbours, where M is the number of distinct points.
 entropy-regularized fuzzy c-means, `u ∝ exp(−d² / t)`, at a temperature calibrated once from the data:
 T = (mean squared radius) / (rank + 2). The three variants differ only in the temperature: **T/2**
 (LC-FixedHalfT), **T** (LC-FixedT) and **2T** (LC-SoftFixedT). Nothing is tuned per dataset.
-The equations are in [docs/FIXED_TEMPERATURE.md](docs/FIXED_TEMPERATURE.md).
+
 
 ## Datasets
 
@@ -128,5 +128,4 @@ result.
 ## Licence
 
 The code is under the MIT licence ([LICENSE](LICENSE)). The datasets are from the UCI Machine
-Learning Repository under CC BY 4.0; see [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) for
-attribution.
+Learning Repository under CC BY 4.0; 
