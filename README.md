@@ -93,46 +93,6 @@ The equations are in [docs/FIXED_TEMPERATURE.md](docs/FIXED_TEMPERATURE.md).
 | held-out (8) | banknote, wall-following, wifi, vehicle, parkinsons, ionosphere, sonar, libras | Not looked at before their first full run |
 
 `RESULTS.md` reports the groups separately, so the results do not rest on the datasets the
-methods were developed on. Sources, licences (CC BY 4.0) and file details are in
-[docs/DATA_SOURCES.md](docs/DATA_SOURCES.md).
-
-## Repository layout
-
-```text
-reproduce.py              one-command entry point
-requirements.txt          exact package versions
-pyproject.toml            package metadata (pip install -e .)
-data/
-  uci/                    the 30 raw files of the 21 datasets
-  checksums.json          SHA-256 of every file, checked before each run
-src/
-  algo/                   one file per method; numerical code only
-    fcm.py  pcm.py  pfcm.py  dpc.py  efcm.py  mc_fcm.py  kmeans_pp.py
-    lc_fixed_half_t.py  lc_fixed_t.py  lc_soft_fixed_t.py
-    _local_entropy.py     shared LC geometry, objective and updates
-    _numerics.py  _models.py  _constants.py
-  data_loader.py          reads and standardizes the 21 datasets
-  metrics.py              ARI, NMI, Purity, Silhouette, PC, PE
-  figures.py              the PNG figures
-  benchmark/
-    config.py             the protocol: methods, datasets, metrics
-    registry.py           builds each method with its fixed settings
-    runner.py             the workflow: test, fit, report, audit
-    checkpoints.py        resumable SQLite checkpoints
-    analysis.py           wins and ranks
-    statistics.py         means, SDs and statistical tests
-    reporting.py          CSV tables and figures
-    results_markdown.py   RESULTS.md
-    verification.py       the independent audit
-    figure_data.py  figure_style.py
-tests/                    unit tests (run automatically before every benchmark)
-docs/                     methods, equations, data sources, figures, reviewer answers
-  figures/                the LC pipeline diagram and the script that draws it
-  paper/                  builds the paper's tables and figures from results/benchmark
-research/                 record of the earlier experiments (not used by the benchmark)
-```
-
-How the layers fit together is described in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Run the tests only
 
@@ -164,15 +124,6 @@ labels = fit.U.argmax(axis=1)      # fit.U holds the fuzzy memberships
 Every method in `src/algo/` works the same way: construct it with K, call `fit(X)`, and read the
 result.
 
-## Documentation
-
-- [docs/ALGORITHMS.md](docs/ALGORITHMS.md): every method, its settings and its source; scoring and statistics
-- [docs/FIXED_TEMPERATURE.md](docs/FIXED_TEMPERATURE.md): the LC equations
-- [docs/MCFCM_PROVENANCE.md](docs/MCFCM_PROVENANCE.md): how MC-FCM was implemented and checked
-- [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md): dataset sources and attribution
-- [docs/FIGURES.md](docs/FIGURES.md): the figure catalogue
-- [docs/REVIEWER_QA.md](docs/REVIEWER_QA.md): answers to likely reviewer questions, with the evidence
-- [research/README.md](research/README.md): the earlier experiments and what they showed
 
 ## Licence
 
