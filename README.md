@@ -128,4 +128,4 @@ result.
 ## Licence
 
 The code is under the MIT licence ([LICENSE](LICENSE)). The datasets are from the UCI Machine
-Learning Repository under CC BY 4.0; 
+Learning Repository under CC BY 4.0.
